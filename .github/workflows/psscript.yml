@@ -3,7 +3,7 @@ on: push
 
 jobs:
   pester-test:
-    name: Pester test
+    name: PowerShell Script Analyzer
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
