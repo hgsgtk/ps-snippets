@@ -18,3 +18,8 @@ $customProxy = Select-String --custom-proxy-config ./selenium.log `
     | ForEach-Object {$_ -replace "--custom-proxy-config=", ""} `
     | ForEach-Object {$_.ToString().Split(" ").Where({$_ -ne ""})[1] -replace '"', ''}
 Write-Output $customProxy
+
+if ($basicAuths.Count + $customHostnames.Count -gt 0) {
+    Write-Output $basicAuths.Count
+    Write-Output $customHostnames.Count
+}
