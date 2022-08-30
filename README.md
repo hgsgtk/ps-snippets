@@ -19,3 +19,17 @@ After installation, make sure you can run the PowerShell command `pwsh`.
 $ pwsh --version
 PowerShell 7.2.6
 ```
+
+## Lint
+
+To run PSScriptAnalyzer, you need to install the [PSScriptAnalyzer](https://docs.microsoft.com/en-us/powershell/utility-modules/psscriptanalyzer/overview?view=ps-modules#installing-psscriptanalyzer).
+
+```bash
+PS > Install-Module -Name PSScriptAnalyzer -Force
+```
+
+Run the linter
+
+```
+PS > Invoke-ScriptAnalyzer -Path .
+```
