@@ -20,16 +20,24 @@ $ pwsh --version
 PowerShell 7.2.6
 ```
 
+Start powershell interactive session:
+
+```bash
+$ pwsh -i
+```
+
 ## Lint
 
 To run PSScriptAnalyzer, you need to install the [PSScriptAnalyzer](https://docs.microsoft.com/en-us/powershell/utility-modules/psscriptanalyzer/overview?view=ps-modules#installing-psscriptanalyzer).
+
+- Install the module:
 
 ```bash
 PS > Install-Module -Name PSScriptAnalyzer -Force
 ```
 
-Run the linter
+- Run PSScriptAnalyzer:
 
-```
+```bash
 PS > Invoke-ScriptAnalyzer -Path .
 ```
