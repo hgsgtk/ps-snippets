@@ -16,3 +16,4 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           failOnErrors: true
           failOnWarnings: true
+          settingsPath: ./PSScriptAnalyzerSettings.psd1
