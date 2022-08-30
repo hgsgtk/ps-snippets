@@ -1,5 +1,5 @@
 name: PSScriptAnalyzer
-on: push
+on: [pull_request]
 
 jobs:
   pester-test:
@@ -9,8 +9,10 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: Run PSScriptAnalyzer
-        uses: microsoft/psscriptanalyzer-action@v1.0
+        # https://github.com/devblackops/github-action-psscriptanalyzer
+        uses: devblackops/github-action-psscriptanalyzer@master
         with:
-          path: .\
-          recurse: true 
-          output: results.sarif
+          sendComment: true
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          failOnErrors: true
+          failOnWarnings: true
