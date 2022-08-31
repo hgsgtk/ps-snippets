@@ -33,4 +33,6 @@ if ($basicAuths.Count + $customHostnames.Count -gt 0) {
     Write-Output $response
     $port=($response | ConvertFrom-Json).port
     Write-Output $port
+} elseif ($customProxy) {
+    Write-Output "Configure a custom proxy"
 }
