@@ -22,4 +22,15 @@ Write-Output $customProxy
 if ($basicAuths.Count + $customHostnames.Count -gt 0) {
     Write-Output $basicAuths.Count
     Write-Output $customHostnames.Count
+
+    $url = "http://localhost:8080/proxy"
+    if ($customProxy) {
+        $url = $url + "?httpProxy=" + $customProxy
+    }
+
+    Write-Output $url
+    $response = (Invoke-Webrequest -Method POST -Body 'trustAllServers=true' $url).Content
+    Write-Output $response
+    $port=($response | ConvertFrom-Json).port
+    Write-Output $port
 }
