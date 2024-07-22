@@ -19,3 +19,12 @@ goto managerwaitloop
 :managerwaitloopend
 
 echo SAMPLE_ENVVAR1 environment variable is set to %SAMPLE_ENVVAR1%
+
+timeout /t 10
+IF "%SAMPLE_ENVVAR1%"=="1" (
+  IF NOT EXIST C:\Users\circleci\project\README.md (
+    echo "No README.md file found."
+    exit
+  )
+  echo "Procesing README.md file..."
+)
